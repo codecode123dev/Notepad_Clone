@@ -3,10 +3,10 @@
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div id="logo">
         <div class="container">
-          <a href="/" title="Online Notepad">
+          <a href="/home" title="Online Notepad">
             <img
               id="logo_img"
-              src="../assets/home_img/anotepad.svg "
+              src="../../assets/home_img/anotepad.svg "
               alt="aNotepad"
             />
             <span id="title"> aNotepad</span>
@@ -32,13 +32,18 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav nav-pills">
             <li>
-              <router-link :to="{name: 'features'}" >
+              <router-link :to="{ name: 'feature_admin_view' }">
                 <span>Features</span>
               </router-link>
             </li>
             <li>
-              <router-link :to="{name: 'create_account'}" >
-                <span>Register/Login</span>
+              <router-link :to="{ name: 'setting_view' }">
+                <span>Settings</span>
+              </router-link>
+            </li>
+            <li>
+              <router-link :to="{ name: 'create_account' }">
+                <span>Logout</span>
               </router-link>
             </li>
             <li>
@@ -51,9 +56,6 @@
   </div>
 </template>
 <style scoped>
-.navbar-inverse {
-    background-color: #4682b4;
-}
 .header {
   height: 40px;
 }
@@ -105,7 +107,7 @@ summary {
   border-color: transparent;
   background-image: none;
 }
-.theme-light .navbar-inverse {
+.navbar-inverse {
   background-color: #4682b4;
 }
 .header #logo {
@@ -139,7 +141,7 @@ a {
   font-size: 1.8em;
   display: inline-block;
 }
-.theme-light .header #logo a {
+.header #logo a {
   color: #fff;
 }
 
@@ -162,7 +164,7 @@ img {
   display: inline-block;
   vertical-align: -3px;
 }
-.theme-light .header #logo #subTitle {
+.header #logo #subTitle {
   color: #fff;
 }
 .container-fluid {
@@ -309,27 +311,49 @@ a {
   color: #fff;
 }
 
-.theme-light .nav-pills>li>a {
-    color: #fff;
+.theme-light .nav-pills > li > a {
+  color: #fff;
 }
-.theme-light .link-language {
-    background-image: url(../assets/home_img/icon_language_light.png);
+.header .link-language {
+  background-image: url(../../assets/home_img/icon_language_light.png);
 }
 .link-language {
-    display: inline-block;
-    padding: 0!important;
-    width: 40px;
-    height: 40px;
-    background-repeat: no-repeat;
-    background-size: 20px 20px;
-    background-position: center;
+  display: inline-block;
+  padding: 0 !important;
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  background-position: center;
 }
 
-.theme-light .nav>li>a:hover, .theme-light .nav>li>a:focus {
-    background-color: #55a1e0;
-    color: #10589b;
+.nav > li > a:hover,
+.nav > li > a:focus {
+  background-color: #55a1e0;
+  color: #10589b;
 }
 
+.navbar-inverse{
+    background-color: #4682b4;
+}
+.header #logo a {
+    color: #fff;
+}
+.header #logo #subTitle {
+    color: #fff;
+}
+.header .nav-pills>li>a {
+    color: #fff;
+}
+
+.nav-pills>li>a {
+    border-radius: 4px;
+}
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
 @media only screen and (min-width: 1280px) {
   .header #logo {
     margin-left: 5%;

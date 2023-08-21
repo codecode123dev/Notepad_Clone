@@ -26,13 +26,14 @@
     </div>
 
     <p>
-      <router-link :to="{ name: 'about' }" >About</router-link>
-      | <router-link :to="{name: 'privacy'}" >Privacy</router-link> | <router-link :to="{name: 'features'}">Features</router-link> |
+      <router-link :to="{ name: 'about_admin_view' }">About</router-link>
+      | <router-link :to="{ name: 'privacy_admin_view' }">Privacy</router-link> |
+      <router-link :to="{ name: 'feature_admin_view' }">Features</router-link> |
       <a href="https://www.gotresumebuilder.com" target="_blank"
         >Resume Builder</a
       >
       | <a href="https://www.gotfreefax.com" target="_blank">Free Fax</a> |
-      <router-link :to="{name  :'reportabuse_admin_view'}" >Report Abuse</router-link>
+      <router-link :to="{ name: 'reportabuse_admin_view' }">Report Abuse</router-link>
     </p>
 
     <p>

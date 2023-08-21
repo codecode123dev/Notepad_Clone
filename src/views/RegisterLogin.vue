@@ -6,7 +6,7 @@
       you can log in below.
     </p>
     <div>
-      <h2>Create an Account</h2>
+      <h1>Create an Account</h1>
       <form class="from-Create">
         <div class="Username-from">
           <label for="reg-username" class="control-label">Email</label>
@@ -40,7 +40,7 @@
     </div>
 
     <div>
-      <h2>Login</h2>
+      <h1>Login</h1>
       <form class="from-Create">
         <div class="Username-from">
           <label for="login-username" class="control-label">Email</label>
@@ -131,8 +131,11 @@
           </label>
         </div>
         <div class="button-from">
-          <button type="submit" class="create-button b2">Login</button>
-          <a href="" class="forgot"> Forgot password?</a>
+            <button type="submit" class="create-button b2">
+              Login
+            </button>
+          
+          <router-link :to="{name :'home_admin_view'}" class="forgot"> Forgot password?</router-link>
         </div>
       </form>
     </div>
@@ -165,17 +168,21 @@ form {
   margin-bottom: 0;
   float: left;
   text-align: left;
-  font-weight: bold;
+  
 }
 
 p {
+  margin-right: 127px;
   padding-top: 30px;
+  padding-bottom: 20px;
   text-align: center;
 }
 
-h2 {
+h1 {
   position: relative;
   left: 150px;
+  font-size: 2em;
+    margin-bottom: 0.8em;
 }
 
 .from-Create {
@@ -224,7 +231,14 @@ label {
   display: inline;
   margin-right: 10px;
   width: 500px;
-  height: 25px;
+  height: 34px;
+  line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 6px 12px;
 }
 
 .Username-from input {
@@ -274,7 +288,7 @@ form input:focus {
   background: #f9f9f9;
   border: 1px solid #d3d3d3;
   padding: 10px;
-  height: 56px;
+  height: 78px;
   width: 280px;
   font-family: Arial, sans-serif;
   display: flex;
@@ -282,8 +296,8 @@ form input:focus {
   justify-content: space-between;
   align-items: center;
   margin-top: 20px;
-  margin-left: 8px;
-  border-radius: 5px;
+  margin-left: 85px;
+  border-radius: 2px;
 }
 
 /* Styles for the checkbox holder */
