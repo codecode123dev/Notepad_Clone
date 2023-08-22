@@ -83,7 +83,7 @@
 
                   <v-list>
                     <v-list-item v-for="(item, index) in items" :key="index">
-                      <v-list-item-title>{{ item.title }}</v-list-item-title>
+                      <v-list-item-title >{{ item.title }}</v-list-item-title>
                     </v-list-item>
                   </v-list>
                 </v-menu>
@@ -103,18 +103,6 @@
                       </strong>
                     </span>
                   </template>
-
-                  <!-- <v-card>
-                      <v-card-text>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua.
-                      </v-card-text>
-                      <v-card-actions>
-                        <v-btn color="primary" block @click="dialog = false"
-                          >Close Dialog</v-btn
-                        >
-                      </v-card-actions>
-                    </v-card> -->
 
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -200,6 +188,139 @@
               </div>
             </div>
 
+            <!-- <div class="form-group">
+              <div class="col-sm-12">
+                <span class="topLinks">
+                  <strong>
+                    <a title="Attach Images and Files to Note"  class="link-attach" @click="dialog_attach_file = true">
+                      Attach Files
+                    </a>
+                  </strong>
+                </span>
+                <span id="noteFileList"></span>
+              </div>
+            </div>
+
+
+              <v-dialog v-model="dialog_attach_file" width="auto">
+               <div class="modal in" id="attachFileModal" tabindex="-1" role="dialog" aria-labelledby="attachFileModalLabel" style="display: block;">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="dialog_attach_file = false">
+                        <span aria-hidden="true">×</span>
+                      </button>
+                      <h4 class="modal-title" id="attachFileModalLabel">Attach Files to Note</h4>
+                    </div>
+
+                    <div class="modal-body" id="attachFileContent">
+                      <div class="alert alert-warning">
+                        This feature is available in Premium plan only. 
+                        <a href="#">Upgrade Now</a>
+                         to access more great features.
+                      </div>
+
+                      <div class="fileuploader fileuploader-theme-dragdrop">
+                        <input type="hidden" name="fileuploader-list-attachFiles" value="[]">
+                        <input type="file" name="attachFiles" style="position: absolute; z-index: -9999; height: 0px; width: 0px; padding: 0px; margin: 0px; line-height: 0; outline: 0px; border: 0px; opacity: 0;">
+                        <div class="fileuploader-input">
+                          <div class="fileuploader-input-inner">
+                            <div class="fileuploader-icon-main"></div>
+                            <h3 class="fileuploader-input-caption">
+                              <span>Drag and drop files here</span>
+                              <p>or</p>
+                            </h3>
+                            <button type="button" class="fileuploader-input-button">
+                              <span>Browse files</span>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="fileuploader-items">
+                          <ul class="fileuploader-items-list"></ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+               </div>
+              </v-dialog> -->
+
+
+                 <v-dialog
+                  v-model="dialog_attach_file"
+                  width="auto"
+                >
+                  <template v-slot:activator="{ props }">
+                    <!-- <v-btn
+                      color="primary"
+                      v-bind="props"
+                    >
+                      Open Dialog
+                    </v-btn> -->
+                    <div class="form-group" v-bind="props">
+                      <div class="col-sm-12">
+                        <span class="topLinks">
+                          <strong>
+                            <a title="Attach Images and Files to Note"  class="link-attach">
+                              Attach Files
+                            </a>
+                          </strong>
+                        </span>
+                        <span id="noteFileList"></span>
+                      </div>
+                    </div>
+                  </template>
+
+                  
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" @click="dialog_attach_file = false">
+                            <span>×</span>
+                          </button>
+                          <h4 class="modal-title" id="attachFileModalLabel">Attach Files to Note</h4>
+                        </div>
+                        <div class="modal-body" id="attachFileContent">
+                          <div class="alert alert-warning">
+                            This feature is available in Premium plan only. 
+                            <a href="#">Upgrade Now</a>
+                            to access more great features.
+                          </div>
+                          <div class="fileuploader fileuploader-theme-dragdrop">
+                            <input type="hidden" name="fileuploader-list-attachFiles">
+                            <input type="file" name="attachFiles" style="position: absolute; z-index: -9999; height: 0px; width: 0px; padding: 0px; margin: 0px; line-height: 0; outline: 0px; border: 0px; opacity: 0;">
+                            <div class="fileuploader-input">
+                              <div class="fileuploader-input-inner">
+                                <div class="fileuploader-icon-main">
+                                  <i class="fas fa-cloud-upload-alt"></i>
+                                </div>
+                                <h3 class="fileuploader-input-caption">
+                                  <span>Drag and drop files here</span>
+                                </h3>
+                                <p>or</p>
+                                <button type="button" class="fileuploader-input-button">
+                                  <span>Browse files</span>
+                                </button>
+                              </div>
+                            </div>
+
+                            <div class="fileuploader-items">
+                              <ul class="fileuploader-items-list"></ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  
+                </v-dialog>
+
+
+
+
+
+
             <div class="form-group" id="taskContainer" style="display: none">
               <div class="col-sm-12">
                 <div id="taskList" class="task-list ui-sortable"></div>
@@ -215,18 +336,199 @@
                   id="btnSaveNote"
                   tabindex="3"
                 />
-                <label class="link-lockopen">
-                  Public Note (
-                  <a href="#" tabindex="4" class="register">Register</a>
-                  for private notes)
-                </label>
+                <span class="topLinks dropdown">
+                    
+                    <v-dialog v-model="dialog_public_note" width="auto">
+                      <template v-slot:activator="{ props }">
+                        <a id="noteAccessLabel" class="link-lockopen" v-bind="props">
+                          <strong id="noteAccessText">Public Note</strong>
+                          <span class="caret"></span>
+                        </a>
+                      </template>
+
+                      
+
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button
+                              type="button"
+                              class="close"
+                              data-dismiss="modal"
+                              @click="dialog_public_note = false"
+                            >
+                              <span aria-hidden="true">×</span>
+                            </button>
+                            <h4 class="modal-title" id="noteAccessModalLabel">
+                              Note Read Permission
+                            </h4>
+                          </div>
+                          <div class="modal-body">
+                            <div class="radio">
+                              <label>
+                                <input
+                                  type="radio"
+                                  name="access"
+                                  id="accesspublic"
+                                  value="2"
+                                  checked="checked"
+                                />
+
+                                Public Note
+                              </label>
+                            </div>
+                            <div class="radio">
+                              <label>
+                                <input
+                                  type="radio"
+                                  name="access"
+                                  id="accessprivate"
+                                  value="1"
+                                />
+
+                                Private Note
+                              </label>
+                            </div>
+                            <div class="radio">
+                              <label>
+                                <input
+                                  type="radio"
+                                  name="access"
+                                  id="accesspasswordprotected"
+                                  value="3"
+                                />
+
+                                Password Protected Note
+                                <input type="text" name="password" placeholder="Password" />
+                              </label>
+                            </div>
+                            <hr />
+
+                            <h4>Note Edit Permission</h4>
+                            <div class="checkbox">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  name="quickedit"
+                                  id="quickedit"
+                                  value="true"
+                                />
+
+                                Allow other people with editor password to edit this note
+
+                                <input
+                                  type="text"
+                                  name="quickeditpassword"
+                                  id="quickeditpassword"
+                                  placeholder="Editor Password"
+                                />
+                              </label>
+                            </div>
+                          </div>
+
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" @click="dialog_public_note = false">
+                              Close
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      
+                    </v-dialog>
+                </span>
+
+
+
                 <span
                   id="actionMessage"
                   style="display: none"
                   class="alert-success"
                 ></span>
               </div>
+
+
+
               <div class="col-md-12">
+                
+                <v-dialog
+                  v-model="dialog_remove_file"
+                  width="auto"
+                >
+                  <template v-slot:activator="{ props }">
+                    <div v-bind="props">
+                      <a>Remove all Ads</a>
+                    </div>
+                  </template>
+
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button
+                          type="button"
+                          class="close"
+                          data-dismiss="modal"
+                          @click="dialog_remove_file = false"
+                        >
+                          <span aria-hidden="true">×</span>
+                        </button>
+                        <h4 class="modal-title" id="premiumPlanModalLabel">
+                          Upgrade to Premium
+                        </h4>
+                      </div>
+                      <div class="modal-body" id="premiumPlanContent">
+                        <form
+                          method="POST"
+                          action="/premiumupgrade"
+                          id="formUpgradeToPremium"
+                        >
+                          <div class="premium-features">
+                            <div>
+                              <b>aNotepad Premium</b>
+                              enables the following additional features:
+                            </div>
+                            <ul>
+                              <li>
+                                <b> No Ads </b>
+                                - No Ads in note editing and viewing
+                              </li>
+                              <li>
+                                <b>File attachment</b>
+                                - Upload and attach files to notes
+                              </li>
+                              <li>
+                                <b>Image upload</b>
+                                - Upload and insert images to notes
+                              </li>
+                              <li>
+                                <b>Note version history</b>
+                                - View note edit history versions
+                              </li>
+                              <li>
+                                <b>Email notes</b>
+                                - Send notes in email or as PDF attachment
+                              </li>
+                              <li>Priority support</li>
+                              <li>
+                                Only
+                                <span class="price">$0.99</span>
+                                /month, cancel anytime
+                              </li>
+                            </ul>
+                            <div>
+                              <button
+                                type="button"
+                                id="btnUpgradeNow"
+                                class="btn"
+                                value="Upgrade Now"
+                              >Upgrade Now</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </v-dialog>
+
                 <div
                   align="center"
                   data-freestar-ad="__336x280 __336x280"
@@ -234,6 +536,8 @@
                   name="anotepad_leaderboard_btf"
                   data-google-query-id="CKGUne-w44ADFZGalgodKXcGkA"
                 ></div>
+
+
               </div>
             </div>
           </form>
@@ -622,76 +926,7 @@
         </div>
       </div>
 
-      <div
-        class="modal"
-        id="attachFileModal"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="attachFileModalLabel"
-      >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">×</span>
-              </button>
-              <h4 class="modal-title" id="attachFileModalLabel">
-                Attach Files to Note
-              </h4>
-            </div>
-            <div class="modal-body" id="attachFileContent">
-              <div class="alert alert-warning">
-                This feature is available in Premium plan only.
-                <a href="#">Upgrade Now</a>
-                to access more great features.
-              </div>
-              <div class="fileuploader fileuploader-theme-dragdrop">
-                <input
-                  type="hidden"
-                  name="fileuploader-list-attachFiles"
-                  value="[]"
-                />
-                <input
-                  type="file"
-                  name="attachFiles"
-                  style="
-                    position: absolute;
-                    z-index: -9999;
-                    height: 0px;
-                    width: 0px;
-                    padding: 0px;
-                    margin: 0px;
-                    line-height: 0;
-                    outline: 0px;
-                    border: 0px;
-                    opacity: 0;
-                  "
-                />
-                <div class="fileuploader-input">
-                  <div class="fileuploader-input-inner">
-                    <div class="fileuploader-icon-main"></div>
-                    <h3 class="fileuploader-input-caption">
-                      <span>Drag and drop files here</span>
-                    </h3>
-                    <p>or</p>
-                    <button type="button" class="fileuploader-input-button">
-                      <span>Browse files</span>
-                    </button>
-                  </div>
-                </div>
-                <div class="fileuploader-items">
-                  <ul class="fileuploader-items-list"></ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      
 
       <div class="displayNotes clearfix">
         <div>
@@ -934,6 +1169,9 @@ export default {
     ],
     dialog: false,
     dialog_folder_manager: false,
+    dialog_attach_file: false,
+    dialog_remove_file: false,
+    dialog_public_note: false
   }),
   name: "HomeView",
   components: {},
@@ -1126,7 +1364,7 @@ textarea {
 .dropup {
   position: relative;
 }
-.theme-light a {
+.containerMain a {
   color: #10589b;
 }
 .topLinks a {
@@ -1208,7 +1446,7 @@ a {
   padding-left: 22px !important;
   position: relative;
 }
-.theme-light a {
+.containerMain a {
   color: #10589b;
 }
 .topLinks a {
@@ -1222,22 +1460,22 @@ a {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.theme-light .link-add::after,
-.theme-light .link-read::after,
-.theme-light .link-email::after,
-.theme-light .link-share::after,
-.theme-light .link-import::after,
-.theme-light .link-attach::after,
-.theme-light .link-lock::after,
-.theme-light .link-lockopen::after,
+.containerMain .link-add::after,
+.containerMain .link-read::after,
+.containerMain .link-email::after,
+.containerMain .link-share::after,
+.containerMain .link-import::after,
+.containerMain .link-attach::after,
+.containerMain .link-lock::after,
+.containerMain .link-lockopen::after,
 .link-lockpassword::after,
-.theme-light .link-delete::after,
-.theme-light .link-download::after,
-.theme-light .link-move::after,
-.theme-light .link-history::after,
-.theme-light .link-sort::after,
-.theme-light .link-az::after,
-.theme-light .link-edit::after {
+.containerMain .link-delete::after,
+.containerMain .link-download::after,
+.containerMain .link-move::after,
+.containerMain .link-history::after,
+.containerMain .link-sort::after,
+.containerMain .link-az::after,
+.containerMain .link-edit::after {
   content: "";
   position: absolute;
   top: 0;
@@ -1248,10 +1486,10 @@ a {
   background-size: 800px 20px;
   background-image: url(../../assets/home_img/icon_sprites.png);
 }
-.theme-light .link-import::after {
+.containerMain .link-import::after {
   background-position: left -640px center;
 }
-.theme-light .link-share::after {
+.containerMain .link-share::after {
   background-position: left -560px center;
 }
 .btn-group-vertical > .btn-group:after,
@@ -1393,7 +1631,7 @@ label {
   position: relative;
 }
 
-.theme-light .link-lockopen::after {
+.containerMain .link-lockopen::after {
   background-position: left -360px center;
 }
 .alert-success {
@@ -1711,17 +1949,17 @@ label {
   height: 34px;
   padding: 6px 0;
 }
-.theme-light a {
+.containerMain a {
   color: #10589b;
 }
 .topLinks a {
   padding: 5px;
   border-radius: 3px;
 }
-.theme-light .link-az::after {
+.containerMain .link-az::after {
   background-position: left -680px center;
 }
-.theme-light .link-sort::after {
+.containerMain .link-sort::after {
   background-position: left -600px center;
 }
 
@@ -1797,21 +2035,75 @@ ul.folder-option li {
   }
 }
 
-.theme-light a:hover,
-.theme-light a:focus {
+.containerMain a:hover,
+.containerMain a:focus {
   color: #55a1e0;
 }
-.theme-light .folder-action a:hover,
-.theme-light .topLinks a:hover,
-.theme-light .public {
+.containerMain .folder-action a:hover,
+.containerMain .topLinks a:hover,
+.containerMain .public {
   color: #fff;
   background-color: #4682b4;
 }
 
-.theme-light a:hover,
-.theme-light a:focus {
+.containerMain a:hover,
+.containerMain a:focus {
   color: #55a1e0;
 }
+.topLinks {
+    display: inline-block;
+    height: 34px;
+    padding: 6px 0;
+}
+.containerMain .link-add::after, .containerMain .link-read::after, .containerMain .link-email::after, .containerMain .link-share::after, .containerMain .link-import::after, .containerMain .link-attach::after, .containerMain .link-lock::after, .containerMain .link-lockopen::after, .link-lockpassword::after, .containerMain .link-delete::after, .containerMain .link-download::after, .containerMain .link-move::after, .containerMain .link-history::after, .containerMain .link-sort::after, .containerMain .link-az::after, .containerMain .link-edit::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 800px 20px;
+    background-image: url(../../assets/home_img/icon_sprites.png);
+}
+.containerMain .link-attach::after {
+    background-position: left -40px center;
+}
+
+.dropdown, .dropup {
+    position: relative;
+}
+.topLinks {
+    display: inline-block;
+    height: 34px;
+    padding: 6px 0;
+}
+.topLinks a {
+    padding: 5px;
+    border-radius: 3px;
+}
+.caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px dashed;
+    border-top: 4px solid\9;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+.btn-primary {
+    color: #fff !important;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
+}
+
 
 /* dialog */
 
@@ -1833,7 +2125,7 @@ ul.folder-option li {
   margin: 10px;
 }
 
-.theme-light .modal-dialog {
+.containerMain .modal-dialog {
   color: #1e1e1e;
 }
 
@@ -2026,9 +2318,9 @@ input[type="radio"] {
   margin-top: 4px\9;
   margin-left: -20px;
 }
-.theme-light .modal-dialog input,
-.theme-light .modal-dialog textarea,
-.theme-light .modal-dialog select {
+.containerMain .modal-dialog input,
+.containerMain .modal-dialog textarea,
+.containerMain .modal-dialog select {
   background: #fff;
   color: #1e1e1e;
   border-radius: 4px;
@@ -2056,9 +2348,9 @@ textarea {
   line-height: inherit;
 }
 
-.theme-light .modal-dialog input,
-.theme-light .modal-dialog textarea,
-.theme-light .modal-dialog select {
+.containerMain .modal-dialog input,
+.containerMain .modal-dialog textarea,
+.containerMain .modal-dialog select {
   background: #fff;
   color: #1e1e1e;
   border-radius: 4px;
@@ -2198,7 +2490,7 @@ a {
   color: #337ab7;
   text-decoration: none;
 }
-.theme-light a {
+.containerMain a {
   color: #10589b;
 }
 .form-group {
@@ -2365,9 +2657,9 @@ textarea {
 .fileuploader-popup :before {
   box-sizing: border-box;
 }
-.theme-light .modal-dialog input,
-.theme-light .modal-dialog textarea,
-.theme-light .modal-dialog select {
+.containerMain .modal-dialog input,
+.containerMain .modal-dialog textarea,
+.containerMain .modal-dialog select {
   background: #fff;
   color: #1e1e1e;
   border-radius: 4px;
@@ -2486,7 +2778,7 @@ textarea {
   list-style: none;
 }
 
-.theme-light .modal-dialog {
+.containerMain .modal-dialog {
   color: #1e1e1e;
 }
 .alert-warning {
@@ -2556,7 +2848,7 @@ textarea {
   margin-bottom: 15px;
 }
 
-.theme-light .modal-dialog {
+.containerMain .modal-dialog {
   color: #1e1e1e;
 }
 
@@ -2634,9 +2926,9 @@ textarea {
 .col-xs-8 {
   width: 66.66666667%;
 }
-.theme-light .modal-dialog input,
-.theme-light .modal-dialog textarea,
-.theme-light .modal-dialog select {
+.containerMain .modal-dialog input,
+.containerMain .modal-dialog textarea,
+.containerMain .modal-dialog select {
   background: #fff;
   color: #1e1e1e;
   border-radius: 4px;
@@ -2679,6 +2971,9 @@ textarea {
     width: 600px;
     margin: 30px auto;
   }
+  .col-sm-12 {
+    width: 100%;
+  }
 }
 
 .button_xs_4 {
@@ -2694,5 +2989,245 @@ textarea {
   border: 1px solid #666;
 }
 
+.fileuploader-theme-dragdrop .fileuploader-input {
+    display: block;
+    padding: 40px 0;
+    background: #fff;
+    border: 2px dashed #c2cdda;
+    border-radius: 14px;
+    text-align: center;
+}
 /* End Dialog */
+
+
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 10px;
+}
+
+.containerMain .modal-dialog {
+  color: #1e1e1e;
+}
+.modal.in .modal-dialog {
+    -webkit-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    -o-transform: translate(0,0);
+    transform: translate(0,0);
+}
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #999;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 6px;
+    -webkit-box-shadow: 0 3px 9px rgba(0,0,0,.5);
+    box-shadow: 0 3px 9px rgba(0,0,0,.5);
+    outline: 0;
+}
+
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+
+.close {
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;
+}
+button.close {
+  padding: 0;
+    cursor: pointer;
+    background: 0 0;
+    border: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  
+.modal-header .close {
+    margin-top: -2px;
+}
+
+.h4, h4 {
+    font-size: 18px;
+}
+.modal-title {
+    margin: 0;
+    line-height: 1.42857143;
+}
+.modal-body {
+    position: relative;
+    padding: 15px;
+}
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.alert-warning {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+}
+
+.fileuploader, .fileuploader *, .fileuploader :after, .fileuploader :before, .fileuploader-popup, .fileuploader-popup *, .fileuploader-popup :after, .fileuploader-popup :before {
+    box-sizing: border-box;
+}
+.fileuploader, .fileuploader-popup {
+    font-family: Roboto,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: normal;
+    text-align: left;
+}
+.fileuploader {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    margin: 16px 0;
+    background: #fafbfd;
+    border-radius: 6px;
+}
+.fileuploader {
+    background: #fff;
+}
+.modal-dialog input, .containerMain .modal-dialog textarea, .containerMain .modal-dialog select {
+    background: #fff;
+    color: #1e1e1e;
+    border-radius: 4px;
+    border: 1px solid #666;
+}
+input[type=file] {
+    display: block;
+}
+
+.fileuploader-input {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border: 1px solid transparent;
+    border-radius: 30px;
+    cursor: pointer;
+}
+.fileuploader-theme-dragdrop .fileuploader-input {
+    display: block;
+    padding: 40px 0;
+    background: #fff;
+    border: 2px dashed #c2cdda;
+    border-radius: 14px;
+    text-align: center;
+}
+.fileuploader-theme-dragdrop .fileuploader-input .fileuploader-icon-main {
+    display: block;
+    font-size: 56px;
+    margin: 0 auto;
+    margin-bottom: 26px;
+}
+.fileuploader-theme-dragdrop .fileuploader-input .fileuploader-input-inner>* {
+    -webkit-transition: 500ms cubic-bezier(.17,.67,0,1.01);
+    transition: 500ms cubic-bezier(.17,.67,0,1.01);
+}
+.fileuploader-input .fileuploader-input-caption {
+    position: relative;
+    display: inline-block;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -ms-flex-item-align: start;
+    align-self: flex-start;
+    padding: 13px 16px;
+    margin-right: 16px;
+    background: #fff;
+    border: 1px solid #ebeef1;
+    border-radius: 30px;
+    color: #789bec;
+    box-shadow: 0 4px 18px rgba(0,0,0,.01);
+    font-weight: 700;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+
+.fileuploader-theme-dragdrop .fileuploader-input h3 {
+    margin: 0;
+    margin-bottom: 8px;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #5b5b7b;
+    white-space: normal;
+    box-shadow: none;
+}
+
+.fileuploader-theme-dragdrop .fileuploader-input .fileuploader-input-inner>* {
+    -webkit-transition: 500ms cubic-bezier(.17,.67,0,1.01);
+    transition: 500ms cubic-bezier(.17,.67,0,1.01);
+}
+.fileuploader-theme-dragdrop .fileuploader-input p {
+    margin: 0;
+    padding: 0;
+    color: #90a0bc;
+    margin-bottom: 12px;
+}
+.fileuploader-items .fileuploader-items-list {
+    display: block;
+    margin: 0 -16px;
+    padding: 0;
+    list-style: none;
+}
+button, html input[type=button], input[type=reset], input[type=submit] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+button#btnUpgradeNow {
+    background: #fff;
+    color: #1e1e1e;
+    border-radius: 4px;
+    border: 1px solid #666;
+}
+.premium-features #btnUpgradeNow {
+    margin: 10px 0;
+}
+
+.containerMain a {
+  cursor: pointer;
+}
+
+.v-list.v-theme--light.v-list--density-default.v-list--one-line {
+    width: 158px;
+}
+.v-list-item--density-default.v-list-item--one-line {
+    min-height: 36px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.v-list-item-title {
+  font-size: 0.9rem;
+}
+@media (min-width: 768px){
+  .modal-dialog {
+      width: 600px;
+      margin: 30px auto;
+  }
+  .modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+}
+
+}
 </style>

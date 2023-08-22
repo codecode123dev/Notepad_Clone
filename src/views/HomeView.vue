@@ -83,7 +83,7 @@
 
                   <v-list>
                     <v-list-item v-for="(item, index) in items" :key="index">
-                      <v-list-item-title>{{ item.title }}</v-list-item-title>
+                      <v-list-item-title class="hover-item">{{ item.title }}</v-list-item-title>
                     </v-list-item>
                   </v-list>
                 </v-menu>
@@ -214,7 +214,7 @@
                 />
                 <label class="link-lockopen">
                   Public Note (
-                  <a href="#" tabindex="4" class="register">Register</a>
+                  <router-link :to="{name: 'create_account'}" tabindex="4" class="register">Register</router-link>
                   for private notes)
                 </label>
                 <span
@@ -1538,6 +1538,7 @@ label {
   .col-sm-8 {
     width: 66.66666667%;
   }
+
 }
 @media (min-width: 992px) {
   .col-md-1,
@@ -2654,6 +2655,12 @@ textarea {
     color: #1e1e1e;
     border-radius: 4px;
     border: 1px solid #666;
+}
+
+
+.v-list-item.v-theme--light.v-list-item--density-default.v-list-item--one-line.v-list-item--variant-text:hover{
+  color: #fff;
+    background-color: #4682b4;
 }
 
 /* End Dialog */

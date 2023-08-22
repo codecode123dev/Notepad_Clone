@@ -34,7 +34,7 @@ body {
     background-color: #fff;
 }
 
-body.theme-light {
+body {
     background-color: #f8f9fa;
 }
 body {

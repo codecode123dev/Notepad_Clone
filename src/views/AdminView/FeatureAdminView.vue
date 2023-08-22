@@ -230,4 +230,8 @@ li {
   margin-right: auto;
   margin-left: auto;
 }
+.displayContent {
+    background: #fff;
+    color: #333;
+}
 </style>

@@ -208,4 +208,8 @@ a {
 a:hover {
   color: #337ab7;
 }
+.displayContent {
+    background: #fff;
+    color: #333;
+}
 </style>

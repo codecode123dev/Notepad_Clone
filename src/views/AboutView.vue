@@ -80,7 +80,10 @@ a {
 a:hover {
   color: #337ab7;
 }
-
+.displayContent {
+    background: #fff;
+    color: #333;
+}
 @media screen and (-webkit-min-device-pixel-ratio: 0){
   .containerMain {
       min-height: 385px;
