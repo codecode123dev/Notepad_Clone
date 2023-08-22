@@ -131,11 +131,11 @@
           </label>
         </div>
         <div class="button-from">
-            <button type="submit" class="create-button b2">
+            <router-link :to="{name :'home_admin_view'}" type="button" class="create-button b2">
               Login
-            </button>
+            </router-link>
           
-          <router-link :to="{name :'home_admin_view'}" class="forgot"> Forgot password?</router-link>
+          <router-link :to="{name :'forgot_password'}" class="forgot"> Forgot password?</router-link>
         </div>
       </form>
     </div>

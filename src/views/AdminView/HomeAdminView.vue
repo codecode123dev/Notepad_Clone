@@ -44,31 +44,7 @@
 
             <div class="form-group">
               <div class="col-sm-12">
-                <!-- <span class="topLinks dropdown">
-                    <a
-                      id="notetyoeLabel"
-                      data-target="#"
-                      href="#"
-                      data-toggle="dropdown"
-                      role="button"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      <strong id="noteTypeDropdown"> Plain Text Note </strong>
-                      <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="notetyoeLabel">
-                      <li>
-                        <a href="#">Plain Text Note</a>
-                      </li>
-                      <li>
-                        <a href="#">Rich Text Note</a>
-                      </li>
-                      <li>
-                        <a href="#">Task List</a>
-                      </li>
-                    </ul>
-                  </span> -->
+              
 
                 <v-menu :location="bottom" class="topLinks dropdown">
                   <template v-slot:activator="{ props }">
@@ -88,11 +64,7 @@
                   </v-list>
                 </v-menu>
 
-                <!-- <span class="topLinks">
-                    <strong>
-                      <a class="link-import"> Import Word/Pdf </a>
-                    </strong>
-                  </span> -->
+    
 
                 <v-dialog v-model="dialog" width="auto">
                   <template v-slot:activator="{ props }">

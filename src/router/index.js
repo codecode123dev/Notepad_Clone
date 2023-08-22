@@ -5,6 +5,7 @@ import PrivacyView from '../views/PrivacyView.vue'
 import FeatureView from '../views/FeatureView.vue'
 import ReportabuseView from '../views/ReportabuseView.vue'
 import RegisterLogin from '../views/RegisterLogin.vue'
+import ForgotPassword from '../views/ForgotPassword.vue'
 import HomeAdminView from '../views/AdminView/HomeAdminView.vue'
 import AdminView from '../views/AdminView/AdminView.vue'
 import SettingView from '../views/AdminView/SettingView.vue'
@@ -42,6 +43,11 @@ const routes = [
     path: '/create_account',
     name: 'create_account',
     component: RegisterLogin
+  },
+  {
+    path: '/forgot',
+    name: 'forgot_password',
+    component: ForgotPassword
   },
   {
     path: '/home',
