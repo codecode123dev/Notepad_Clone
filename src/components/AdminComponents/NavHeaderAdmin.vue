@@ -9,9 +9,9 @@
               src="../../assets/home_img/anotepad.svg "
               alt="aNotepad"
             />
-            <span id="title"> aNotepad</span>
+            <span id="title">SmartNotepad</span>
           </a>
-          <span id="subTitle"> - free online notepad </span>
+          <!-- <span id="subTitle"> - free online notepad </span> -->
         </div>
       </div>
 
