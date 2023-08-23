@@ -32,7 +32,7 @@
         >Resume Builder</a
       >
       | <a href="https://www.gotfreefax.com" target="_blank">Free Fax</a> |
-      <router-link :to="{name  :'reportabuse_admin_view'}" >Report Abuse</router-link>
+      <router-link :to="{name  :'reportabuse'}" >Report Abuse</router-link>
     </p>
 
     <p>
